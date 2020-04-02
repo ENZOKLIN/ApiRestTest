@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/form-ui.css}">
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/29a74e2c62.js" crossorigin="anonymous"></script>
+    <title>Registro de Processos</title>
+</head>
+<body>
+
+<!--
+    <i class="fas fa-bars"></i>
+-->
+
+<!-- BARRA TOPO -->
+<div class="barra-topo">
+    <h4 style="text-align: center; " id="infoLocal" class="info-local">Registro de Processo</h4>
+</div>
+
+<!-- CONTEUDO -->
+<div class="conteudo">
+    <div class="container-fluid">
+        <!-- Informações do formulário -->
+        <div class="row">
+
+        </div>
+        <form action="#" th:action="@{/register/process}" th:method="POST" id="regForm" class="col-md-8 p-0"
+              th:object="${processo}">
+            <!-- Formulários -->
+            <div class="alert alert-danger" role="alert" th:if="${messageError != null}">
+                <span th:text="${messageError}"></span>
+            </div>
+            <div class="alert alert-success" role="alert" th:if="${messageSucess != null}">
+                <span th:text="${messageSucess}"></span>
+            </div>
+            <!-- Primeira guia -->
+            <div class="form-input margin-center">
+                <label for="nmbrProcess">Número do Processo</label>
+                <input th:field="${processo.nmbrProcess}" type="number" id="nmbrProcess" placeholder="8038438">
+                <div class="div-info-input">
+                                        <span id="spanNmbrProcess">
+                                            O campo número do processo precisa ser preenchido!
+                                        </span>
+                </div>
+                <label for="detailsProcess">Detalhes do Processo</label>
+                <input th:field="${processo.detailsProcess}" type="text" id="detailsProcess" placeholder="Bueno">
+                <div class="div-info-input">
+                                        <span id="spanDetailsProcess">
+                                            O campo detalhes do processo precisa ser preenchido!
+                                        </span>
+                </div>
+            </div>
+            <button type="submit" class="button-ui">Adicionar</button>
+        </form>
+    </div>
+</div>
+</form>
+
+<!-- Javascript -->
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
